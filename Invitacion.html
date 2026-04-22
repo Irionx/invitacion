@@ -1,0 +1,1297 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Orden de los Amigos Perdidos — Convocatoria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Special+Elite&display=swap" rel="stylesheet">
+
+<script>
+// ─────────────────────────────────────────────────────────────────
+//  DATOS EDITABLES — Modificalos a mano o usá el panel Tweaks
+// ─────────────────────────────────────────────────────────────────
+const GRIMOIRE_DATA = /*EDITMODE-BEGIN*/{
+  "convocatoria": {
+    "numero": "I",
+    "anno": "MMXXVI",
+    "vocero": "Kabe",
+    "promulgada": "21 de abril del año de Nuestro Asado 2026"
+  },
+  "iniciados": [
+    {
+      "nombre": "Waka",
+      "alias": "El Ancianus Convocator",
+      "estado": "convocado"
+    },
+    {
+      "nombre": "Chiro",
+      "alias": "El Pelotarius Mixtus",
+      "estado": "convocado"
+    },
+    {
+      "nombre": "Juani",
+      "alias": "Magister Iuventutis",
+      "estado": "convocado"
+    },
+    {
+      "nombre": "Tarkae",
+      "alias": "Imperator et Pater Patriae",
+      "estado": "convocada"
+    },
+    {
+      "nombre": "Gusti",
+      "alias": "Custos Clavis et Throni",
+      "estado": "convocado"
+    },
+    {
+      "nombre": "Gyula",
+      "alias": "Ursus Primus de la Frontera",
+      "estado": "convocado"
+    },
+    {
+      "nombre": "Facu",
+      "alias": "El Iniciado",
+      "estado": "convocado"
+    },
+    {
+      "nombre": "Lucho",
+      "alias": "Illuminatus Verus",
+      "estado": "convocado"
+    },
+    {
+      "nombre": "Rodri",
+      "alias": "Scriptor Codicum",
+      "estado": "convocado"
+    },
+    {
+      "nombre": "Kevin",
+      "alias": "Vir Sanctissimus",
+      "estado": "convocado"
+    },
+    {
+      "nombre": "Kabe",
+      "alias": "Legatus Corporis",
+      "estado": "convocado"
+    },
+    {
+      "nombre": "Sebas",
+      "alias": "",
+      "estado": "convocado"
+    }
+  ],
+  "conclave": {
+    "estado": "en tratativas",
+    "propuestas": []
+  },
+  "balon": {
+    "estado": "en tratativas",
+    "propuestas": []
+  }
+}/*EDITMODE-END*/;
+</script>
+
+<style>
+/* ───────────────────── RESET + BASE ───────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'IM Fell English', Georgia, serif;
+  color:oklch(0.18 0.015 40);
+  background:
+    radial-gradient(ellipse at 20% 10%, oklch(0.88 0.04 75) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 90%, oklch(0.85 0.05 60) 0%, transparent 60%),
+    oklch(0.91 0.025 80);
+  min-height:100vh;
+  padding:48px 20px 120px;
+  line-height:1.55;
+  font-size:18px;
+}
+
+/* subtle paper grain */
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  pointer-events:none;
+  opacity:.28;
+  mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.25 0 0 0 0 0.2 0 0 0 0 0.15 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  z-index:0;
+}
+
+/* ─────────────── PERGAMINO ─────────────── */
+.scroll{
+  position:relative;
+  max-width:820px;
+  margin:0 auto;
+  background:
+    radial-gradient(ellipse at 30% 20%, oklch(0.96 0.02 80) 0%, transparent 70%),
+    radial-gradient(ellipse at 70% 80%, oklch(0.94 0.03 70) 0%, transparent 70%),
+    oklch(0.94 0.022 80);
+  padding:72px 64px 88px;
+  box-shadow:
+    0 2px 0 oklch(0.82 0.03 70),
+    0 0 0 1px oklch(0.75 0.04 60),
+    0 24px 60px -12px oklch(0.25 0.05 40 / .35),
+    0 40px 100px -20px oklch(0.2 0.05 40 / .45);
+  z-index:1;
+}
+/* burnt edges */
+.scroll::before{
+  content:"";
+  position:absolute; inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse 120% 60px at 50% 0%, oklch(0.55 0.08 40 / .25), transparent 70%),
+    radial-gradient(ellipse 120% 80px at 50% 100%, oklch(0.55 0.08 40 / .3), transparent 70%),
+    radial-gradient(ellipse 80px 120% at 0% 50%, oklch(0.55 0.08 40 / .2), transparent 70%),
+    radial-gradient(ellipse 80px 120% at 100% 50%, oklch(0.55 0.08 40 / .2), transparent 70%);
+  z-index:1;
+}
+.scroll::after{
+  /* replaced by the wax seal placed at top-right */
+  content:none;
+}
+
+/* ─────────────── TITLES / HEADERS ─────────────── */
+.order-mark{
+  text-align:center;
+  font-family:'Special Elite', monospace;
+  font-size:11px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:oklch(0.42 0.15 25);
+  margin-bottom:18px;
+  position:relative;
+  z-index:2;
+}
+.order-mark::before, .order-mark::after{
+  content:"✠";
+  margin:0 14px;
+  color:oklch(0.35 0.13 25);
+}
+
+.title{
+  font-family:'UnifrakturMaguntia', serif;
+  text-align:center;
+  font-size:clamp(42px, 7vw, 68px);
+  line-height:1;
+  color:oklch(0.2 0.04 30);
+  margin-bottom:8px;
+  position:relative; z-index:2;
+  text-shadow:0 1px 0 oklch(0.95 0.02 80);
+}
+.subtitle{
+  text-align:center;
+  font-family:'IM Fell English SC', serif;
+  font-size:15px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:oklch(0.32 0.04 30);
+  margin-bottom:28px;
+  position:relative; z-index:2;
+}
+
+.divider{
+  display:flex; align-items:center; justify-content:center;
+  gap:14px;
+  margin:28px 0;
+  color:oklch(0.42 0.12 30);
+  position:relative; z-index:2;
+}
+.divider::before, .divider::after{
+  content:""; flex:1;
+  height:1px;
+  background:linear-gradient(90deg, transparent, oklch(0.45 0.1 40 / .55), transparent);
+}
+.divider span{font-size:18px; letter-spacing:.2em}
+
+/* ─────────────── PREAMBLE ─────────────── */
+.preamble{
+  position:relative; z-index:2;
+  text-align:justify;
+  hyphens:auto;
+  text-wrap:pretty;
+  font-size:18px;
+  margin-bottom:14px;
+}
+.preamble .dropcap::first-letter{
+  font-family:'UnifrakturMaguntia', serif;
+  font-size:66px;
+  float:left;
+  line-height:.85;
+  padding:6px 10px 0 0;
+  color:oklch(0.42 0.15 25);
+}
+.preamble em{color:oklch(0.32 0.08 30)}
+.latin{
+  font-style:italic;
+  font-family:'IM Fell English', serif;
+  color:oklch(0.38 0.08 30);
+}
+
+/* ─────────────── RITE CARDS ─────────────── */
+.rite{
+  position:relative;
+  margin:44px 0;
+  padding:36px 32px 28px;
+  background:
+    linear-gradient(oklch(0.93 0.02 78 / .6), oklch(0.9 0.03 72 / .6)),
+    oklch(0.92 0.025 78);
+  border:1px solid oklch(0.55 0.05 40 / .4);
+  box-shadow:
+    inset 0 0 0 1px oklch(0.96 0.02 80 / .6),
+    inset 0 0 40px oklch(0.65 0.08 50 / .15);
+  z-index:2;
+}
+.rite::before{
+  content:"";
+  position:absolute;
+  inset:6px;
+  border:1px dashed oklch(0.5 0.08 35 / .35);
+  pointer-events:none;
+}
+
+.rite-number{
+  position:absolute;
+  top:-18px; left:50%;
+  transform:translateX(-50%);
+  width:44px; height:44px;
+  border-radius:50%;
+  background:oklch(0.94 0.02 78);
+  border:1.5px solid oklch(0.42 0.13 25);
+  display:grid; place-items:center;
+  font-family:'UnifrakturMaguntia', serif;
+  color:oklch(0.42 0.15 25);
+  font-size:22px;
+  box-shadow:0 2px 6px oklch(0.2 0.05 30 / .2);
+}
+
+.rite-glyph{
+  text-align:center;
+  font-size:36px;
+  line-height:1;
+  color:oklch(0.42 0.13 30);
+  margin:6px 0 10px;
+}
+.rite-name{
+  text-align:center;
+  font-family:'UnifrakturMaguntia', serif;
+  font-size:clamp(32px, 4.5vw, 44px);
+  color:oklch(0.22 0.04 30);
+  line-height:1.05;
+  margin-bottom:4px;
+}
+.rite-latin{
+  text-align:center;
+  font-style:italic;
+  font-family:'IM Fell English', serif;
+  color:oklch(0.4 0.08 30);
+  font-size:16px;
+  margin-bottom:18px;
+}
+.rite-desc{
+  text-align:center;
+  font-family:'IM Fell English SC', serif;
+  letter-spacing:.12em;
+  font-size:13px;
+  text-transform:uppercase;
+  color:oklch(0.38 0.04 30);
+  margin-bottom:22px;
+}
+
+/* ─────────────── PROPOSALS ─────────────── */
+.prop-heading{
+  display:flex; align-items:center; gap:10px;
+  font-family:'IM Fell English SC', serif;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:13px;
+  color:oklch(0.4 0.1 30);
+  margin:22px 0 14px;
+}
+.prop-heading::before, .prop-heading::after{
+  content:""; flex:1; height:1px;
+  background:oklch(0.5 0.08 35 / .4);
+}
+
+.proposals{
+  display:grid;
+  gap:14px;
+}
+
+.proposal{
+  display:grid;
+  grid-template-columns:48px 1fr auto;
+  gap:14px;
+  align-items:center;
+  padding:14px 16px;
+  background:oklch(0.95 0.02 80 / .55);
+  border:1px solid oklch(0.55 0.06 40 / .25);
+  position:relative;
+}
+.proposal .n{
+  font-family:'UnifrakturMaguntia', serif;
+  font-size:30px;
+  color:oklch(0.42 0.12 28);
+  text-align:center;
+  line-height:1;
+}
+.proposal .meta .when{
+  font-family:'IM Fell English', serif;
+  font-size:19px;
+  color:oklch(0.2 0.03 30);
+  font-weight:500;
+}
+.proposal .meta .where{
+  font-family:'IM Fell English', serif;
+  font-style:italic;
+  font-size:15px;
+  color:oklch(0.35 0.04 30);
+  margin-top:1px;
+}
+.proposal .meta .by{
+  font-family:'Special Elite', monospace;
+  font-size:10.5px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:oklch(0.5 0.04 35);
+  margin-top:4px;
+}
+.adhesions{
+  display:flex; flex-direction:column; align-items:flex-end;
+  gap:4px;
+  min-width:90px;
+}
+.adhesion-count{
+  font-family:'UnifrakturMaguntia', serif;
+  font-size:28px;
+  color:oklch(0.42 0.15 25);
+  line-height:1;
+}
+.adhesion-label{
+  font-family:'Special Elite', monospace;
+  font-size:9.5px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:oklch(0.45 0.05 30);
+}
+.adhesion-names{
+  grid-column:1 / -1;
+  padding-top:8px;
+  margin-top:8px;
+  border-top:1px dashed oklch(0.5 0.08 35 / .3);
+  font-family:'IM Fell English', serif;
+  font-style:italic;
+  font-size:14px;
+  color:oklch(0.4 0.04 30);
+}
+.adhesion-names .tag{
+  display:inline-block;
+  margin:2px 6px 2px 0;
+  padding:2px 8px;
+  background:oklch(0.88 0.04 70 / .7);
+  border:1px solid oklch(0.55 0.08 35 / .25);
+  font-style:normal;
+  font-size:13px;
+  color:oklch(0.28 0.04 30);
+}
+
+/* ─────────────── INICIADOS ROSTER ─────────────── */
+.roster{
+  position:relative;
+  z-index:2;
+  margin-top:50px;
+  padding:36px 30px 32px;
+  background:
+    linear-gradient(oklch(0.9 0.03 72 / .45), oklch(0.88 0.035 65 / .55));
+  border-top:2px solid oklch(0.42 0.13 25 / .5);
+  border-bottom:2px solid oklch(0.42 0.13 25 / .5);
+}
+.roster h3{
+  text-align:center;
+  font-family:'UnifrakturMaguntia', serif;
+  font-size:34px;
+  color:oklch(0.22 0.04 30);
+  margin-bottom:4px;
+}
+.roster .roster-sub{
+  text-align:center;
+  font-family:'IM Fell English', serif;
+  font-style:italic;
+  color:oklch(0.4 0.06 30);
+  margin-bottom:22px;
+}
+.roster-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+  gap:10px 20px;
+}
+.iniciado{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  padding:8px 4px;
+  border-bottom:1px dotted oklch(0.5 0.08 35 / .35);
+}
+.iniciado .status-dot{
+  width:10px; height:10px;
+  border-radius:50%;
+  flex-shrink:0;
+  border:1px solid oklch(0.3 0.05 30 / .5);
+}
+.iniciado .nombre{
+  font-family:'IM Fell English', serif;
+  font-size:16px;
+  color:oklch(0.2 0.03 30);
+  font-weight:500;
+}
+.iniciado .alias{
+  font-family:'IM Fell English', serif;
+  font-style:italic;
+  font-size:13px;
+  color:oklch(0.48 0.05 30);
+  margin-left:auto;
+}
+.status-convocado  { background:oklch(0.88 0.02 80) }
+.status-convocada  { background:oklch(0.88 0.02 80) }
+.status-confirmado { background:oklch(0.55 0.14 140) }
+.status-dudoso     { background:oklch(0.72 0.14 80) }
+.status-reclamado  { background:oklch(0.55 0.17 25) }
+.status-ausente    { background:oklch(0.35 0.02 40) }
+
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:14px 22px;
+  margin-top:22px;
+  font-family:'Special Elite', monospace;
+  font-size:10.5px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:oklch(0.4 0.04 30);
+}
+.legend span{display:inline-flex; align-items:center; gap:6px}
+.legend .status-dot{width:9px; height:9px; border-radius:50%; border:1px solid oklch(0.3 0.05 30 / .5)}
+
+/* ─────────────── INSTRUCTIONS ─────────────── */
+.instructions{
+  position:relative; z-index:2;
+  margin-top:42px;
+  padding:28px 28px;
+  background:oklch(0.94 0.02 80 / .6);
+  border:1px double oklch(0.42 0.13 25 / .45);
+}
+.instructions h4{
+  font-family:'UnifrakturMaguntia', serif;
+  font-size:28px;
+  color:oklch(0.22 0.04 30);
+  text-align:center;
+  margin-bottom:12px;
+}
+.instructions ol{
+  list-style:none;
+  counter-reset:inst;
+  display:grid; gap:10px;
+  font-size:16.5px;
+  max-width:620px;
+  margin:0 auto;
+}
+.instructions li{
+  counter-increment:inst;
+  padding-left:42px;
+  position:relative;
+}
+.instructions li::before{
+  content:counter(inst, upper-roman) ".";
+  position:absolute; left:0; top:0;
+  font-family:'UnifrakturMaguntia', serif;
+  font-size:22px;
+  color:oklch(0.42 0.15 25);
+  min-width:34px;
+  text-align:right;
+}
+
+/* ─────────────── SEAL / FOOTER ─────────────── */
+.closing{
+  position:relative; z-index:2;
+  text-align:center;
+  margin-top:56px;
+  font-family:'IM Fell English', serif;
+  font-style:italic;
+  color:oklch(0.3 0.05 30);
+  font-size:17px;
+  line-height:1.6;
+}
+.closing .ave{
+  font-family:'UnifrakturMaguntia', serif;
+  font-size:32px;
+  color:oklch(0.42 0.15 25);
+  font-style:normal;
+  margin-bottom:6px;
+}
+.signature{
+  margin-top:36px;
+  display:flex; flex-direction:column; align-items:center;
+}
+.signature .line{
+  font-family:'IM Fell English', serif;
+  font-style:italic;
+  color:oklch(0.25 0.04 30);
+  font-size:17px;
+  border-bottom:1px solid oklch(0.4 0.04 30 / .5);
+  padding:0 40px 4px;
+  margin-bottom:4px;
+}
+.signature .role{
+  font-family:'Special Elite', monospace;
+  font-size:10.5px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:oklch(0.42 0.05 30);
+}
+
+/* ─────────────── RESOLVE LIST / EN TRATATIVAS ─────────────── */
+ol.resolve{
+  list-style:none;
+  margin:18px 0 6px;
+  padding-left:0;
+  display:grid; gap:10px;
+  counter-reset:resolve;
+  position:relative; z-index:2;
+}
+ol.resolve li{
+  padding:10px 14px 10px 18px;
+  border-left:2px solid oklch(0.42 0.13 25 / .55);
+  background:oklch(0.93 0.025 78 / .45);
+  font-size:16.5px;
+  text-align:justify;
+  text-wrap:pretty;
+  hyphens:auto;
+}
+ol.resolve .art{
+  font-family:'IM Fell English SC', serif;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-size:12px;
+  color:oklch(0.4 0.1 28);
+  margin-right:2px;
+}
+
+.pending-notice{
+  position:relative;
+  padding:26px 22px 20px;
+  text-align:center;
+  border:1px dashed oklch(0.42 0.13 25 / .55);
+  background:oklch(0.94 0.02 78 / .5);
+  font-family:'IM Fell English', serif;
+  font-style:italic;
+  color:oklch(0.32 0.04 30);
+  font-size:15.5px;
+  line-height:1.55;
+}
+.pending-notice p{margin:6px auto; max-width:520px}
+.pending-notice .pending-foot{
+  font-family:'Special Elite', monospace;
+  font-style:normal;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:oklch(0.45 0.05 30);
+  margin-top:12px;
+}
+.pending-stamp{
+  display:inline-block;
+  margin-bottom:6px;
+  padding:6px 16px;
+  font-family:'IM Fell English SC', serif;
+  font-size:14px;
+  letter-spacing:.32em;
+  color:oklch(0.42 0.15 25);
+  border:2px solid oklch(0.42 0.15 25);
+  transform:rotate(-3deg);
+  filter:url(#stamp-rough);
+  opacity:.82;
+}
+
+/* ─────────────── ORDER SIGIL (sin cera) ─────────────── */
+.order-sigil{
+  margin:44px auto 0;
+  width:180px; height:180px;
+  display:grid; place-items:center;
+  color:oklch(0.42 0.15 25);
+  opacity:.82;
+  filter:url(#stamp-rough);
+}
+.order-sigil svg{
+  width:100%; height:100%;
+}
+
+/* ─────────────── WAX SEAL ─────────────── */
+.wax-seal{
+  position:absolute;
+  top:-28px; right:36px;
+  width:168px; height:168px;
+  z-index:5;
+  transform:rotate(-9deg);
+  filter:
+    drop-shadow(3px 8px 8px oklch(0.15 0.1 25 / .55))
+    drop-shadow(0 1px 0 oklch(0.9 0.05 40 / .3));
+}
+.wax-seal.bottom{
+  position:relative;
+  top:auto; right:auto;
+  margin:44px auto 10px;
+  width:200px; height:200px;
+  transform:rotate(-6deg);
+}
+/* the wax blob itself — irregular organic shape via border-radius + clip */
+.wax-seal .wax{
+  position:absolute; inset:0;
+  border-radius: 48% 52% 45% 55% / 52% 46% 54% 48%;
+  background:
+    /* highlight — pressed center catches light */
+    radial-gradient(circle at 34% 30%, oklch(0.78 0.15 28 / .85) 0%, transparent 22%),
+    /* mid tones */
+    radial-gradient(circle at 62% 58%, oklch(0.52 0.2 25) 0%, transparent 55%),
+    /* deep shadow pooling */
+    radial-gradient(circle at 70% 78%, oklch(0.22 0.14 24) 0%, transparent 60%),
+    radial-gradient(circle at 20% 75%, oklch(0.28 0.16 25) 0%, transparent 55%),
+    /* base color */
+    linear-gradient(135deg, oklch(0.48 0.19 26) 0%, oklch(0.38 0.17 24) 50%, oklch(0.3 0.15 23) 100%);
+  box-shadow:
+    inset 0 3px 6px oklch(0.9 0.12 40 / .25),
+    inset -4px -6px 14px oklch(0.15 0.1 24 / .6),
+    inset 3px 4px 10px oklch(0.7 0.15 30 / .35);
+}
+/* irregular drips / splatters */
+.wax-seal .wax::before{
+  content:"";
+  position:absolute;
+  width:38px; height:46px;
+  right:-8px; top:18%;
+  border-radius: 55% 45% 40% 60% / 60% 50% 50% 40%;
+  background:
+    radial-gradient(circle at 30% 30%, oklch(0.72 0.16 30 / .7) 0%, transparent 40%),
+    linear-gradient(140deg, oklch(0.46 0.19 26), oklch(0.3 0.16 23));
+  box-shadow:
+    inset -2px -3px 6px oklch(0.18 0.1 24 / .6),
+    inset 2px 2px 5px oklch(0.7 0.15 30 / .4);
+  transform:rotate(18deg);
+}
+.wax-seal .wax::after{
+  content:"";
+  position:absolute;
+  width:28px; height:34px;
+  left:-10px; bottom:22%;
+  border-radius: 50% 50% 45% 55% / 55% 45% 55% 45%;
+  background:
+    radial-gradient(circle at 40% 35%, oklch(0.7 0.16 30 / .6) 0%, transparent 40%),
+    linear-gradient(135deg, oklch(0.44 0.19 26), oklch(0.28 0.16 23));
+  box-shadow:
+    inset -2px -2px 5px oklch(0.18 0.1 24 / .6),
+    inset 2px 2px 4px oklch(0.7 0.15 30 / .35);
+  transform:rotate(-14deg);
+}
+/* the impressed sigil — embossed into the wax with stamped texture */
+.wax-seal .sigil{
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  filter:
+    url(#stamp-rough)
+    drop-shadow(0 1.2px 0 oklch(0.88 0.12 40 / .45))
+    drop-shadow(0 -1px 0 oklch(0.12 0.1 24 / .7));
+  opacity:.94;
+  mix-blend-mode:multiply;
+}
+.wax-seal .sigil svg.sigil-svg{
+  width:76%; height:76%;
+  color:oklch(0.18 0.12 24);
+}
+/* grainy ink-on-wax texture overlay, masked to the seal shape */
+.wax-seal .grain{
+  position:absolute; inset:0;
+  border-radius: 48% 52% 45% 55% / 52% 46% 54% 48%;
+  pointer-events:none;
+  opacity:.55;
+  mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='g'><feTurbulence baseFrequency='1.4' numOctaves='2' stitchTiles='stitch' seed='7'/><feColorMatrix values='0 0 0 0 0.15  0 0 0 0 0.08  0 0 0 0 0.06  0 0 0 0.7 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>");
+}
+.wax-seal .cracks{
+  position:absolute; inset:0;
+  border-radius: 48% 52% 45% 55% / 52% 46% 54% 48%;
+  pointer-events:none;
+  opacity:.38;
+  mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='c'><feTurbulence baseFrequency='0.02 0.5' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.06  0 0 0 0 0.05  0 0 0 0.6 -0.15'/></filter><rect width='100%25' height='100%25' filter='url(%23c)'/></svg>");
+}
+/* faint sheen over the whole seal */
+.wax-seal .sheen{
+  position:absolute; inset:0;
+  border-radius: 48% 52% 45% 55% / 52% 46% 54% 48%;
+  background:
+    radial-gradient(ellipse 45% 30% at 32% 22%, oklch(1 0 0 / .28) 0%, transparent 60%),
+    radial-gradient(ellipse 20% 12% at 70% 18%, oklch(1 0 0 / .18) 0%, transparent 70%);
+  pointer-events:none;
+  mix-blend-mode:screen;
+}
+
+/* ─────────────── TWEAKS PANEL ─────────────── */
+#tweaks{
+  position:fixed;
+  bottom:20px; right:20px;
+  width:340px;
+  max-height:72vh;
+  background:oklch(0.15 0.01 30);
+  color:oklch(0.92 0.02 80);
+  border:1px solid oklch(0.42 0.13 25);
+  box-shadow:0 20px 40px oklch(0 0 0 / .5);
+  font-family:'Special Elite', monospace;
+  font-size:12px;
+  z-index:1000;
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+}
+#tweaks.open{display:flex}
+#tweaks header{
+  padding:12px 14px;
+  background:oklch(0.2 0.02 30);
+  border-bottom:1px solid oklch(0.42 0.13 25);
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:'UnifrakturMaguntia', serif;
+  font-size:20px;
+  color:oklch(0.78 0.12 60);
+  letter-spacing:.04em;
+}
+#tweaks header button{
+  background:transparent; border:1px solid oklch(0.5 0.05 40);
+  color:oklch(0.85 0.02 80);
+  cursor:pointer; padding:2px 8px;
+  font-family:'Special Elite', monospace;
+  font-size:11px;
+}
+#tweaks .body{
+  padding:12px 14px;
+  overflow-y:auto;
+  display:flex; flex-direction:column; gap:12px;
+}
+#tweaks section{border-bottom:1px dashed oklch(0.4 0.04 40); padding-bottom:10px}
+#tweaks section:last-child{border-bottom:none}
+#tweaks h5{
+  font-family:'IM Fell English SC', serif;
+  letter-spacing:.15em;
+  color:oklch(0.78 0.12 60);
+  margin-bottom:8px;
+  font-size:12px;
+}
+#tweaks label{display:block; margin-bottom:6px; color:oklch(0.8 0.02 80)}
+#tweaks input, #tweaks select, #tweaks textarea{
+  width:100%;
+  background:oklch(0.1 0 0);
+  color:oklch(0.92 0.02 80);
+  border:1px solid oklch(0.4 0.04 40);
+  padding:5px 7px;
+  font-family:'Special Elite', monospace;
+  font-size:11.5px;
+}
+#tweaks .mini{display:grid; grid-template-columns:1fr 1fr; gap:6px}
+#tweaks button.act{
+  background:oklch(0.42 0.15 25);
+  color:oklch(0.95 0.02 80);
+  border:none;
+  padding:6px 10px;
+  cursor:pointer;
+  font-family:'IM Fell English SC', serif;
+  letter-spacing:.12em;
+  font-size:11px;
+}
+#tweaks button.ghost{
+  background:transparent;
+  color:oklch(0.85 0.02 80);
+  border:1px solid oklch(0.4 0.04 40);
+  padding:4px 8px;
+  cursor:pointer;
+  font-size:10.5px;
+}
+#tweaks .row{display:flex; gap:6px; align-items:center}
+.sub-item{
+  border:1px solid oklch(0.3 0.03 30);
+  padding:8px;
+  margin-bottom:8px;
+  background:oklch(0.18 0.01 30);
+}
+.sub-item .del{
+  background:transparent; border:none;
+  color:oklch(0.75 0.14 25);
+  cursor:pointer;
+  font-size:14px;
+}
+
+/* print */
+@media print{
+  body{padding:0; background:white}
+  body::before{display:none}
+  .scroll{box-shadow:none; max-width:none; padding:40px}
+  #tweaks{display:none!important}
+}
+
+@media (max-width:640px){
+  body{padding:20px 10px 80px}
+  .scroll{padding:48px 22px 60px}
+  .proposal{grid-template-columns:36px 1fr; gap:10px}
+  .adhesions{grid-column:2; flex-direction:row; align-items:center; gap:8px; min-width:0}
+}
+</style>
+</head>
+<body>
+
+<!-- SVG filter used by the wax seal sigil (turbulence-displacement for stamped texture) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="stamp-rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.9" numOctaves="2" seed="11" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feTurbulence type="fractalNoise" baseFrequency="2.4" numOctaves="1" seed="5" result="grit"/>
+      <feColorMatrix in="grit" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 0.55 0" result="gritA"/>
+      <feComposite in="gritA" in2="rough" operator="in" result="gritMasked"/>
+      <feMerge>
+        <feMergeNode in="rough"/>
+        <feMergeNode in="gritMasked"/>
+      </feMerge>
+    </filter>
+  </defs>
+</svg>
+
+<article class="scroll" id="scroll">
+
+  <div class="order-mark" id="order-mark">Convocatoria Nº I · Anno MMXXVI</div>
+  <h1 class="title">Ordo Amicorum Perditorum</h1>
+  <p class="subtitle">La Orden de la Mesa Chica</p>
+
+  <div class="divider"><span>✦ ✠ ✠ ✠ ✦</span></div>
+
+  <p class="preamble dropcap">
+    <em>In nomine Asadis, et Malbecus, et Spiritus Sancti Pelotae.</em>
+    <strong>Visto</strong> el <em>petitorio formal</em> incoado por el titular de la Comisión de Ancianos, conforme al
+    Artículo <span class="latin">I</span> de la Carta Fundacional de esta Logía, y <strong>atendiendo</strong> la
+    moción adhesiva del Prefecto del Rodaje Mixto debidamente protocolizada en el Libro Mayor
+    de esta Orden; <strong>considerando</strong> la imprescindible necesidad de sostener la <em>comunión fraterna</em>
+    entre los miembros plenarios, honorarios y adherentes; este Vocero de la Orden de la Mesa Chica,
+    en ejercicio de las facultades que le confiere el <em>Reglamento Interno</em> y en nombre de la potestad
+    que la misma Logía le ha delegado por aclamación unánime,
+    <strong>RESUELVE:</strong>
+  </p>
+
+  <ol class="resolve">
+    <li><span class="art">Artículo I</span> — <strong>Declárase abierta</strong> la Convocatoria Nº <span id="inline-numero">I</span>
+      del Anno <span id="inline-anno">MMXXVI</span>, comprensiva de los dos Ritos Mayores que más abajo se enumeran,
+      a saber, el <em>Rito del Cónclave Espirituoso</em> y el <em>Rito de la Comunión del Balón</em>.</li>
+    <li><span class="art">Artículo II</span> — <strong>Convócanse</strong> a la totalidad de los iniciados,
+      conversos, retornantes, jermus adheridas y pibes en edad de rodaje, obrantes en el Libro
+      de los Iniciados que por la presente se integra, a manifestarse <em>fehaciente e individualmente</em>.</li>
+    <li><span class="art">Artículo III</span> — <strong>Notíficase</strong> que las fechas, horarios
+      y recintos de cada Rito se encuentran, al momento de la promulgación,
+      <em>en tratativas formales</em> ante la Mesa Chica; y serán comunicados por <em>cédula sucesiva</em>
+      una vez agotadas las instancias deliberativas pertinentes.</li>
+    <li><span class="art">Artículo IV</span> — <strong>Recuérdase</strong> a los destinatarios
+      el carácter <em>vinculante</em> de la presente cita, el peso histórico e institucional de esta Logía,
+      y la responsabilidad que sobre cada miembro recae en la preservación de su tradición.</li>
+  </ol>
+
+  <p class="preamble" style="margin-top:18px">
+    <span class="latin">Que conste en actas</span> que el presente pergamino <em>reemplaza toda
+    notificación fehaciente anterior</em>, deroga disposiciones en contrario y se promulga
+    <em>bajo apercibimiento de ausente sin aviso</em>, dándose por enterados y debidamente
+    interpelados cuantos a sus ojos llegare. <strong>Cúmplase, comúnquese, archívese.</strong>
+  </p>
+
+  <!-- ─────── RITO I ─────── -->
+  <section class="rite" id="rite-conclave">
+    <div class="rite-number">I</div>
+    <div class="rite-glyph">🜂 ☩ 🜄</div>
+    <h2 class="rite-name">Rito del Cónclave Espirituoso</h2>
+    <p class="rite-latin">Conventus Asadi et Malbecī</p>
+    <p class="rite-desc">Fraternidad · Brasa · Bebidas espirituosas</p>
+
+    <p class="preamble" style="margin-bottom:8px">
+      Dispuesto conforme a <em>tradición inmemorial</em>, el presente Rito tiene por objeto
+      el <em>fortalecimiento solemne de los vínculos fraternos</em>, la deliberación ordenada
+      de asuntos comunes de interés logístico y moral, y la <em>ingesta ritual de alimentos
+      cárnicos y bebidas espirituosas</em> en clima de distensión parlamentaria regulada.
+      <strong>Su realización se considera de asistencia prioritaria</strong>,
+      toda vez que constituye la piedra angular sobre la que reposa la continuidad
+      institucional de la Orden.
+    </p>
+
+    <h3 class="prop-heading">Fecha y Recinto</h3>
+    <div class="proposals" data-proposals="conclave"></div>
+  </section>
+
+  <!-- ─────── RITO II ─────── -->
+  <section class="rite" id="rite-balon">
+    <div class="rite-number">II</div>
+    <div class="rite-glyph">⚽ ☩ ⚽</div>
+    <h2 class="rite-name">Rito de la Comunión del Balón</h2>
+    <p class="rite-latin">Sacramentum Pedipilae Mixtae</p>
+    <p class="rite-desc">Rodaje · Jermus adheridas · Retornantes</p>
+
+    <p class="preamble" style="margin-bottom:8px">
+      En cumplimiento del <em>mandato histórico</em> establecido desde la fundación de esta Orden,
+      convócase bajo el presente Rito al solemne y pleno retorno de quienes se apartaren
+      de las canchas; a la persistente devoción de los fieles cultivadores de la pedipila;
+      y a la integración plena de las <em>jermus adheridas</em> en la alineación mixta.
+      <strong>Se exhorta</strong> al uso de calzado apropiado, a la renuncia expresa de lesiones
+      antiguas y al acatamiento irrestricto de las normas internas de caballerosidad deportiva
+      que rigen en esta Logía desde tiempos inmemoriales.
+    </p>
+
+    <h3 class="prop-heading">Fecha y Recinto</h3>
+    <div class="proposals" data-proposals="balon"></div>
+  </section>
+
+  <!-- ─────── INICIADOS ─────── -->
+  <section class="roster">
+    <h3>Libro de los Iniciados</h3>
+    <p class="roster-sub">— <em>nomina convocatorum</em> —</p>
+    <div class="roster-grid" id="roster-grid"></div>
+    <div class="legend">
+      <span><span class="status-dot status-confirmado"></span>Confirmado</span>
+      <span><span class="status-dot status-convocado"></span>Convocado</span>
+      <span><span class="status-dot status-dudoso"></span>Dudoso</span>
+      <span><span class="status-dot status-reclamado"></span>Reclamado al retorno</span>
+      <span><span class="status-dot status-ausente"></span>Ausente</span>
+    </div>
+  </section>
+
+  <!-- ─────── INSTRUCCIONES ─────── -->
+  <section class="instructions">
+    <h4>Del Procedimiento de Comparecencia</h4>
+    <p class="preamble" style="text-align:center; margin-bottom:14px">
+      La totalidad de las deliberaciones, propuestas y resoluciones accesorias
+      se tramitarán <strong>por vía de encuesta electrónica</strong> en el canal oficial
+      de comunicaciones de la Logía (grupo de WhatsApp), con pleno valor documental
+      y efecto vinculante.
+    </p>
+    <p class="preamble" style="text-align:center; font-style:italic; margin-top:10px">
+      Las cédulas de votación serán emitidas por el Legatus Corporis; las manifestaciones
+      recogidas constarán en actas, y las fechas y recintos definitivos de cada Rito
+      se promulgarán una vez concluidas las tratativas.
+    </p>
+  </section>
+
+  <!-- ─────── CLOSING ─────── -->
+  <div class="closing">
+    <p class="ave">✠ Ite, Asado est ✠</p>
+    <p>Promulgado en el día <span id="promulgada"></span>,<br>
+    por mano del Legatus Corporis, bajo los auspicios de la Orden.</p>
+
+    <div class="signature">
+      <div class="line" id="vocero-name">Sebastián</div>
+      <div class="role">Vocero de la Mesa Chica</div>
+    </div>
+
+    <!-- sigilo de la Orden — impreso sobre el pergamino, sin cera -->
+    <div class="order-sigil" aria-hidden="true">
+      <svg viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <path id="top-arc-b" d="M -60 -6 A 60 60 0 0 1 60 -6"/>
+          <path id="bot-arc-b" d="M -58 8 A 58 58 0 0 0 58 8"/>
+        </defs>
+        <circle cx="0" cy="0" r="72" fill="none" stroke="currentColor" stroke-width="2.2"/>
+        <circle cx="0" cy="0" r="66" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path d="M 0 62 L -59 -20 L 58.9 28 L -58.9 28 L 59 -20 Z"
+              fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter"/>
+        <text font-family="'UnifrakturMaguntia', serif" font-size="15" fill="currentColor" letter-spacing="2">
+          <textPath href="#top-arc-b" startOffset="50%" text-anchor="middle">ORDO MENSAE PARVAE</textPath>
+        </text>
+        <text font-family="'IM Fell English SC', serif" font-size="9" fill="currentColor" letter-spacing="3">
+          <textPath href="#bot-arc-b" startOffset="50%" text-anchor="middle">✦ MMXXVI ✦ ANNO ASADI ✦</textPath>
+        </text>
+        <g stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M 0 -34 L -28 22" stroke-width="2.4"/>
+          <path d="M 0 -34 L 28 22" stroke-width="2.4"/>
+          <circle cx="0" cy="-34" r="3" fill="currentColor"/>
+          <circle cx="-28" cy="22" r="2" fill="currentColor"/>
+          <circle cx="28" cy="22" r="2" fill="currentColor"/>
+          <path d="M -30 -6 L 0 26 L 30 -6" stroke-width="2.4"/>
+          <path d="M -14 -4 Q 0 -14 14 -4 Q 0 6 -14 -4 Z" stroke-width="1.6" fill="currentColor"/>
+          <circle cx="0" cy="-4" r="3.2" fill="currentColor" stroke="none"/>
+          <circle cx="0" cy="-4" r="1.4" fill="oklch(0.92 0.02 80)" stroke="none"/>
+        </g>
+        <g fill="currentColor" stroke="none">
+          <circle cx="0" cy="62" r="2.2"/>
+          <circle cx="-59" cy="-20" r="2.2"/>
+          <circle cx="59" cy="-20" r="2.2"/>
+          <circle cx="-58.9" cy="28" r="2.2"/>
+          <circle cx="58.9" cy="28" r="2.2"/>
+        </g>
+        <text x="0" y="42" text-anchor="middle"
+              font-family="'UnifrakturMaguntia', serif" font-size="16"
+              fill="currentColor" letter-spacing="1">O·M·P</text>
+      </svg>
+    </div>
+
+  </div>
+</article>
+
+<!-- ─────────── TWEAKS PANEL ─────────── -->
+<aside id="tweaks" aria-hidden="true">
+  <header>
+    <span>Tweaks</span>
+    <button id="tweaks-close">cerrar</button>
+  </header>
+  <div class="body">
+    <section>
+      <h5>✠ Convocatoria</h5>
+      <label>Vocero</label>
+      <input id="t-vocero" type="text">
+      <label style="margin-top:6px">Promulgada</label>
+      <input id="t-promulgada" type="text">
+      <label style="margin-top:6px">Número</label>
+      <div class="mini">
+        <input id="t-numero" type="text" placeholder="I">
+        <input id="t-anno" type="text" placeholder="MMXXVI">
+      </div>
+    </section>
+
+    <section>
+      <h5>✠ Iniciados</h5>
+      <div id="t-iniciados"></div>
+      <button class="ghost" id="add-iniciado">+ sumar iniciado</button>
+    </section>
+
+    <section>
+      <h5>🜂 Propuestas · Cónclave</h5>
+      <div id="t-conclave"></div>
+      <button class="ghost" id="add-conclave">+ nueva propuesta</button>
+    </section>
+
+    <section>
+      <h5>⚽ Propuestas · Balón</h5>
+      <div id="t-balon"></div>
+      <button class="ghost" id="add-balon">+ nueva propuesta</button>
+    </section>
+
+    <section>
+      <div class="row">
+        <button class="act" id="t-export">Copiar JSON</button>
+        <button class="ghost" id="t-reload">Refrescar</button>
+      </div>
+      <p style="margin-top:8px; font-size:10.5px; color:oklch(0.72 0.02 80); line-height:1.4">
+        Los cambios se guardan en este archivo. Usá <em>Copiar JSON</em> para llevar el estado a otra máquina.
+      </p>
+    </section>
+  </div>
+</aside>
+
+<script>
+// ─────────── STATE ───────────
+let state = structuredClone(GRIMOIRE_DATA);
+
+const STATUS_OPTIONS = ['confirmado','convocado','convocada','dudoso','reclamado','ausente'];
+
+// ─────────── RENDER ───────────
+function renderAll(){
+  // header bits
+  document.getElementById('order-mark').textContent =
+    `Convocatoria Nº ${state.convocatoria.numero} · Anno ${state.convocatoria.anno}`;
+  document.getElementById('vocero-name').textContent = state.convocatoria.vocero;
+  document.getElementById('promulgada').textContent = state.convocatoria.promulgada;
+
+  renderProposals('conclave');
+  renderProposals('balon');
+  renderRoster();
+}
+
+function renderProposals(key){
+  const container = document.querySelector(`[data-proposals="${key}"]`);
+  container.innerHTML = '';
+  const list = state[key].propuestas || [];
+  if(list.length === 0){
+    container.innerHTML = `
+      <div class="pending-notice">
+        <div class="pending-stamp">EN TRATATIVAS</div>
+        <p>La fecha y el recinto del presente Rito se encuentran
+        <em>sub examine</em> ante la Mesa Chica, pendientes de resolución por las
+        instancias deliberativas correspondientes.</p>
+        <p class="pending-foot">Su promulgación se notificará por cédula sucesiva.</p>
+      </div>`;
+    return;
+  }
+  const roman = ['I','II','III','IV','V','VI','VII','VIII','IX','X'];
+  list.forEach((p,i) => {
+    const el = document.createElement('div');
+    el.className = 'proposal';
+    const ad = p.adhesiones || [];
+    el.innerHTML = `
+      <div class="n">${roman[i] || (i+1)}</div>
+      <div class="meta">
+        <div class="when">${escapeHtml(p.fecha)}</div>
+        <div class="where">${escapeHtml(p.lugar)}</div>
+        <div class="by">Propuesta por ${escapeHtml(p.proponente)}</div>
+      </div>
+      <div class="adhesions">
+        <div class="adhesion-count">${ad.length}</div>
+        <div class="adhesion-label">adhesiones</div>
+      </div>
+      ${ad.length ? `<div class="adhesion-names">${ad.map(n=>`<span class="tag">${escapeHtml(n)}</span>`).join('')}</div>` : ''}
+    `;
+    container.appendChild(el);
+  });
+}
+
+function renderRoster(){
+  const grid = document.getElementById('roster-grid');
+  grid.innerHTML = '';
+  state.iniciados.forEach(p => {
+    const el = document.createElement('div');
+    el.className = 'iniciado';
+    el.innerHTML = `
+      <span class="status-dot status-${p.estado}"></span>
+      <span class="nombre">${escapeHtml(p.nombre)}</span>
+      <span class="alias">${escapeHtml(p.alias || '')}</span>
+    `;
+    grid.appendChild(el);
+  });
+}
+
+function escapeHtml(s){
+  return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[c]));
+}
+
+// ─────────── TWEAKS: wire up ───────────
+const panel = document.getElementById('tweaks');
+
+window.addEventListener('message', (e) => {
+  if(!e.data || typeof e.data !== 'object') return;
+  if(e.data.type === '__activate_edit_mode'){ panel.classList.add('open'); panel.setAttribute('aria-hidden','false'); buildTweaks(); }
+  if(e.data.type === '__deactivate_edit_mode'){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }
+});
+// announce availability AFTER listener is installed
+try { window.parent.postMessage({type:'__edit_mode_available'}, '*'); } catch(e){}
+
+document.getElementById('tweaks-close').addEventListener('click', () => {
+  panel.classList.remove('open');
+});
+
+function persist(){
+  try {
+    window.parent.postMessage({
+      type:'__edit_mode_set_keys',
+      edits: state
+    }, '*');
+  } catch(e){}
+  renderAll();
+}
+
+function buildTweaks(){
+  // header fields
+  const setField = (id, path) => {
+    const el = document.getElementById(id);
+    el.value = getByPath(state, path) || '';
+    el.oninput = () => { setByPath(state, path, el.value); persist(); };
+  };
+  setField('t-vocero', 'convocatoria.vocero');
+  setField('t-promulgada', 'convocatoria.promulgada');
+  setField('t-numero', 'convocatoria.numero');
+  setField('t-anno', 'convocatoria.anno');
+
+  buildIniciadosEditor();
+  buildPropuestasEditor('conclave', 't-conclave');
+  buildPropuestasEditor('balon', 't-balon');
+
+  document.getElementById('add-iniciado').onclick = () => {
+    state.iniciados.push({ nombre:'Nuevo iniciado', alias:'', estado:'convocado' });
+    persist(); buildIniciadosEditor();
+  };
+  document.getElementById('add-conclave').onclick = () => {
+    state.conclave.propuestas.push({ fecha:'Fecha a definir', lugar:'Lugar a definir', proponente:'Anónimo', adhesiones:[] });
+    persist(); buildPropuestasEditor('conclave', 't-conclave');
+  };
+  document.getElementById('add-balon').onclick = () => {
+    state.balon.propuestas.push({ fecha:'Fecha a definir', lugar:'Lugar a definir', proponente:'Anónimo', adhesiones:[] });
+    persist(); buildPropuestasEditor('balon', 't-balon');
+  };
+  document.getElementById('t-export').onclick = async () => {
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(state, null, 2));
+      alert('JSON copiado al portapapeles');
+    } catch(e) { alert(JSON.stringify(state, null, 2)); }
+  };
+  document.getElementById('t-reload').onclick = () => renderAll();
+}
+
+function buildIniciadosEditor(){
+  const host = document.getElementById('t-iniciados');
+  host.innerHTML = '';
+  state.iniciados.forEach((p, idx) => {
+    const el = document.createElement('div');
+    el.className = 'sub-item';
+    el.innerHTML = `
+      <div class="row" style="justify-content:space-between; align-items:center; margin-bottom:4px">
+        <span style="color:oklch(0.7 0.1 60); font-size:10px; letter-spacing:.1em">#${idx+1}</span>
+        <button class="del" title="eliminar">✕</button>
+      </div>
+      <input class="nm" placeholder="Nombre" value="${escapeAttr(p.nombre)}">
+      <input class="al" placeholder="Alias" value="${escapeAttr(p.alias || '')}" style="margin-top:4px">
+      <select class="st" style="margin-top:4px">
+        ${STATUS_OPTIONS.map(s=>`<option value="${s}" ${s===p.estado?'selected':''}>${s}</option>`).join('')}
+      </select>
+    `;
+    el.querySelector('.nm').oninput = e => { state.iniciados[idx].nombre = e.target.value; persist(); };
+    el.querySelector('.al').oninput = e => { state.iniciados[idx].alias = e.target.value; persist(); };
+    el.querySelector('.st').onchange = e => { state.iniciados[idx].estado = e.target.value; persist(); };
+    el.querySelector('.del').onclick = () => {
+      state.iniciados.splice(idx,1); persist(); buildIniciadosEditor();
+    };
+    host.appendChild(el);
+  });
+}
+
+function buildPropuestasEditor(key, hostId){
+  const host = document.getElementById(hostId);
+  host.innerHTML = '';
+  state[key].propuestas.forEach((p, idx) => {
+    const el = document.createElement('div');
+    el.className = 'sub-item';
+    el.innerHTML = `
+      <div class="row" style="justify-content:space-between; align-items:center; margin-bottom:4px">
+        <span style="color:oklch(0.7 0.1 60); font-size:10px; letter-spacing:.1em">${['I','II','III','IV','V','VI','VII'][idx]||idx+1}</span>
+        <button class="del" title="eliminar">✕</button>
+      </div>
+      <input class="fx" placeholder="Fecha" value="${escapeAttr(p.fecha)}">
+      <input class="lg" placeholder="Lugar" value="${escapeAttr(p.lugar)}" style="margin-top:4px">
+      <input class="pr" placeholder="Proponente" value="${escapeAttr(p.proponente)}" style="margin-top:4px">
+      <textarea class="ad" rows="2" placeholder="Adhesiones (una por línea)" style="margin-top:4px; resize:vertical">${escapeAttr((p.adhesiones||[]).join('\n'))}</textarea>
+    `;
+    el.querySelector('.fx').oninput = e => { state[key].propuestas[idx].fecha = e.target.value; persist(); };
+    el.querySelector('.lg').oninput = e => { state[key].propuestas[idx].lugar = e.target.value; persist(); };
+    el.querySelector('.pr').oninput = e => { state[key].propuestas[idx].proponente = e.target.value; persist(); };
+    el.querySelector('.ad').oninput = e => {
+      state[key].propuestas[idx].adhesiones = e.target.value.split('\n').map(s=>s.trim()).filter(Boolean);
+      persist();
+    };
+    el.querySelector('.del').onclick = () => {
+      state[key].propuestas.splice(idx,1); persist(); buildPropuestasEditor(key, hostId);
+    };
+    host.appendChild(el);
+  });
+}
+
+function escapeAttr(s){ return escapeHtml(s).replace(/\n/g, '&#10;'); }
+
+function getByPath(o, path){ return path.split('.').reduce((a,k)=>a?.[k], o); }
+function setByPath(o, path, val){
+  const keys = path.split('.');
+  const last = keys.pop();
+  const target = keys.reduce((a,k) => a[k] = a[k] || {}, o);
+  target[last] = val;
+}
+
+// ─────────── INIT ───────────
+renderAll();
+</script>
+
+</body>
+</html>
